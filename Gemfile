@@ -24,7 +24,7 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 gem "grape", "~> 2.2.0"
-gem "grape-swagger", "~> 2.0.0"
+gem "grape-swagger", "~> 2.1.0"
 
 gem "jsonapi-serializer"
 
@@ -34,7 +34,12 @@ group :development, :test do
   gem "dotenv-rails"
   gem "byebug"
   gem "rspec-rails", "~> 7.0.0"
-  gem 'simplecov', require: false
+  gem "simplecov", require: false
+  gem "factory_bot_rails"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 group :development do
