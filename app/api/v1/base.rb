@@ -5,6 +5,7 @@ module V1
 
     mount V1::Menus
     mount V1::MenuItems
+    mount V1::Restaurants
 
     add_swagger_documentation \
       api_version: 'v1',
