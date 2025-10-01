@@ -16,6 +16,16 @@ module V1
         menu = Menu.find(params[:id])
         MenuSerializer.new(menu).serializable_hash
       end
+
+      desc 'List all menu items for a menu'
+      params do
+        requires :menu_id, type: Integer, desc: 'Menu ID'
+      end
+      get ':menu_id/menu_items' do
+        menu = Menu.find(params[:menu_id])
+        items = menu.menu_items
+        MenuItemSerializer.new(items).serializable_hash
+      end
     end
   end
 end
