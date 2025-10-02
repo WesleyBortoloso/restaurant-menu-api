@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Menu, type: :model do
   describe 'associations' do
-    it { should have_many(:menu_menu_items).dependent(:destroy) }
-    it { should have_many(:menu_items).through(:menu_menu_items) }
+    it { should have_many(:pricings).dependent(:destroy) }
+    it { should have_many(:menu_items).through(:pricings) }
     it { should belong_to(:restaurant) }
   end
 
