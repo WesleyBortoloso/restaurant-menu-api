@@ -4,7 +4,9 @@ RSpec.describe 'V1::Menus API', type: :request do
   let!(:menus) { create_list(:menu, 3) }
   let(:menu_id) { menus.first.id }
   let!(:menu_items) do
-    create_list(:menu_item, 3).each { |item| menus.first.menu_items << item }
+    create_list(:menu_item, 3, restaurant: menus.first.restaurant).each do |item|
+      create(:pricing, menu: menus.first, menu_item: item, price: 10.0)
+    end
   end
 
   describe 'GET /api/v1/menus' do

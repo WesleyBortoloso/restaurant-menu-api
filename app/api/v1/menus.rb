@@ -24,7 +24,7 @@ module V1
       get ':menu_id/menu_items' do
         menu = Menu.find(params[:menu_id])
         items = menu.menu_items
-        MenuItemSerializer.new(items).serializable_hash
+        MenuItemSerializer.new(items, include: [:pricings]).serializable_hash
       end
     end
   end
