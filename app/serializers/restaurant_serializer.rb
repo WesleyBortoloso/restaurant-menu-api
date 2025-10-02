@@ -3,4 +3,5 @@ class RestaurantSerializer
   attributes :name, :created_at
 
   has_many :menus
+  has_many :menu_items
 end
