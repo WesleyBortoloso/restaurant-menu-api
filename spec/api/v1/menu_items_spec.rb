@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'V1::MenuItems API', type: :request do
   let!(:menu) { create(:menu) }
   let!(:menu_items) do
-    create_list(:menu_item, 3).each { |item| menu.menu_items << item }
+    create_list(:menu_item, 3, restaurant: menu.restaurant).each do |item|
+      create(:pricing, menu: menu, menu_item: item, price: 10.0)
+    end
   end
 
   describe 'GET /api/v1/menu_items' do
